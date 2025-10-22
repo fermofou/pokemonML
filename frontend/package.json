@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@clerk/nextjs": "^6.33.7",
+    "@uploadthing/react": "^7.3.3",
+    "uploadthing": "^7.7.4"
+  }
+}
