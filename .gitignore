@@ -11,3 +11,4 @@ backend/pokeDay/data_gen/pokemon_data.json
 backend/pokeDay/data_gen/pokemon_cleaned.json
 backend/pokeDay/data_gen/pokemon_shiny_webp_images
 backend/pokeDay/data_gen/pokemon_webp_images
+.venv
