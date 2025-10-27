@@ -124,3 +124,8 @@ def get_pokemon_of_the_day():
         **pokemon  # Unpacks the { name, color, types, normal_url, shiny_url }
     }
 
+@app.get("/")
+def health_check():
+    """Health check endpoint."""
+    return {"status": "ok"}
+
