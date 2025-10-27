@@ -2,6 +2,13 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
+import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 
 const Header = ({ pokemonOfDay, colorTheme }) => {
   return (
@@ -30,27 +37,49 @@ const Header = ({ pokemonOfDay, colorTheme }) => {
                 Today: {pokemonOfDay.name}
               </span>
             </div>
-            <Link href="/dashboard">
-              <Button
-                style={{
-                  backgroundColor: colorTheme.primary,
-                  color: "white",
-                }}
-              >
-                Get Started
-              </Button>
-            </Link>
+            <SignedOut>
+              <SignInButton>
+                <Button
+                  style={{
+                    backgroundColor: colorTheme.primary,
+                    color: "white",
+                  }}
+                >
+                  Sign In
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <Link href="/dashboard">
+                <Button
+                  style={{
+                    backgroundColor: colorTheme.primary,
+                    color: "white",
+                  }}
+                >
+                  Dashboard
+                </Button>
+              </Link>
+              <UserButton />
+            </SignedIn>
           </div>
-          <Link href="/dashboard" className="md:hidden">
-            <Button
-              style={{
-                backgroundColor: colorTheme.primary,
-                color: "white",
-              }}
-            >
-              Get Started
-            </Button>
-          </Link>
+          <div className="md:hidden">
+            <SignedOut>
+              <SignInButton>
+                <Button
+                  style={{
+                    backgroundColor: colorTheme.primary,
+                    color: "white",
+                  }}
+                >
+                  Sign In
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
         </div>
       </header>
     </div>
